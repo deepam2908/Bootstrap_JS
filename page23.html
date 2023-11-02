@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 23 - Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 400px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"], input[type="url"], textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            display: block; /* Added to make error messages visible */
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Task 23</h1>
+</div>
+<div class="container">
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <p class="error" id="nameError"></p>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <p class="error" id="emailError"></p>
+
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website">
+        <p class="error" id="websiteError"></p>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+        <p class="error" id="messageError"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const website = document.getElementById("website").value;
+        const message = document.getElementById("message").value;
+
+        document.getElementById("nameError").textContent = name === "" ? "This field is required for Name" : "";
+        document.getElementById("emailError").textContent = !isValidEmail(email) ? "A valid email address is required" : "";
+        document.getElementById("websiteError").textContent = !isValidURL(website) ? "A valid URL is required" : "";
+        document.getElementById("messageError").textContent = message === "" ? "This field is required for Message" : "";
+
+        if (name !== "" && isValidEmail(email) && isValidURL(website) && message !== "") {
+            // Form is valid, you can submit it or perform other actions here
+            alert("Form submitted successfully!");
+        }
+    });
+
+    function isValidEmail(email) {
+        // You can use a regular expression for email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function isValidURL(url) {
+        // You can use a regular expression for URL validation
+        const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+        return urlRegex.test(url);
+    }
+</script>
+</body>
+</html>

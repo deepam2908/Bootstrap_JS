@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: #ccc;
+            color: white;
+
+            height: 100vh; /* Set the sidebar height to 100% of the viewport height */
+        }
+
+        #content {
+            flex: 1;
+        }
+
+        #content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: underline;
+            color: blue;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="sidebar">
+        <ul>
+            <li><a href="page13.html" target="content">Task 13</a></li>
+            <li><a href="page14.html" target="content">Task 14</a></li>
+            <li><a href="page15.html" target="content">Task 15</a></li>
+            <li><a href="page16.html" target="content">Task 16</a></li>
+            <li><a href="page17.html" target="content">Task 17</a></li>
+            <li><a href="page18.html" target="content">Task 18</a></li>
+            <li><a href="page19.html" target="content">Task 19</a></li>
+            <li><a href="page20.html" target="content">Task 20</a></li>
+            <li><a href="page21.html" target="content">Task 21</a></li>
+            <li><a href="page22.html" target="content">Task 22</a></li>
+            <li><a href="page23.html" target="content">Task 23</a></li>
+            <li><a href="page24.html" target="content">Task 24</a></li>
+            <li><a href="page25.html" target="content">Task 25</a></li>
+            <li><a href="page26.html" target="content">Task 26</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <iframe name="content" src="page13.html" frameborder="0"></iframe>
+    </div>
+</div>
+</body>
+</html>
